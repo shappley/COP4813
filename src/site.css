@@ -2,6 +2,27 @@ a.big-link:hover {
     font-size: 150%;
 }
 
+form div + div {
+    margin-top: 10px;
+}
+
+form label {
+    font-weight: bold;
+    display: inline-block;
+    width: 160px;
+}
+
+form input[type="radio"] + label,
+form input[type="checkbox"] + label {
+    font-weight: normal;
+}
+
+form input[type="text"],
+input[type="date"],
+input[type="password"] {
+    width: 150px;
+}
+
 .red {
     color: red;
 }
@@ -33,4 +54,17 @@ a.big-link:hover {
 
 #events li > ol {
     list-style: upper-alpha;
+}
+
+#degree input[type="radio"] + label,
+#languages input[type="checkbox"] + label {
+    background-color: grey;
+}
+
+#degree input[type="radio"]:checked + label {
+    background-color: green;
+}
+
+#languages input[type="checkbox"]:checked + label {
+    background-color: blue;
 }

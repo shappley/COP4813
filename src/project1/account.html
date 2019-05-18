@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Create an Account</title>
+    <link rel="stylesheet" href="../site.css">
 </head>
 <body>
 <form action="https://unfinishedbusiness.app/alert.php" method="post">
@@ -30,81 +31,81 @@
         <label for="birthday">Birthday: </label>
         <input id="birthday" name="birthday" type="date" min="1970-1-1" max="2020-12-31">
     </div>
-    <div>
+    <div id="degree">
         <label>Degree Track:</label>
         <div>
-            <label>
-                <input type="radio" name="degree_track" value="Computer Science">
+            <input type="radio" id="degree_cs" name="degree_track" value="Computer Science">
+            <label for="degree_cs">
                 Computer Science
                 [<a href="https://www.unf.edu/ccec/computing/Computer_Science_Program.aspx" target="_blank">Catalog</a>]
             </label>
-            <label>
-                <input type="radio" name="degree_track" value="Information Science">
+            <input type="radio" id="degree_isci" name="degree_track" value="Information Science">
+            <label for="degree_isci">
                 Information Science
                 [<a href="https://www.unf.edu/ccec/computing/Information_Science_Program.aspx"
                     target="_blank">Catalog</a>]
             </label>
         </div>
         <div>
-            <label>
-                <input type="radio" name="degree_track" value="Information Systems">
+            <input type="radio" id="degree_is" name="degree_track" value="Information Systems">
+            <label for="degree_is">
                 Information Systems
                 [<a href="https://www.unf.edu/ccec/computing/Information_Systems_Program.aspx"
                     target="_blank">Catalog</a>]
             </label>
-            <label>
-                <input type="radio" name="degree_track" value="Information Technology">
+            <input type="radio" id="degree_it" name="degree_track" value="Information Technology">
+            <label for="degree_it">
                 Information Technology
                 [<a href="https://www.unf.edu/ccec/computing/Information_Technology_Program.aspx" target="_blank">Catalog</a>]
             </label>
         </div>
     </div>
-    <div>
+    <div id="languages">
         <label>Programming Language Experience:</label>
         <div>
-            <label>
-                <input type="checkbox" name="programming_language" value="c">
+            <input type="checkbox" id="lang_c" name="programming_language" value="c">
+            <label for="lang_c">
                 C
                 [<a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank">Wikipedia</a>]
             </label>
-            <label>
-                <input type="checkbox" name="programming_language" value="csharp">
+            <input type="checkbox" id="lang_csharp" name="programming_language" value="csharp">
+            <label for="lang_csharp">
                 C#
                 [<a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" target="_blank">Wikipedia</a>]
             </label>
         </div>
         <div>
-            <label>
-                <input type="checkbox" name="programming_language" value="java">
+            <input type="checkbox" id="lang_java" name="programming_language" value="java">
+            <label for="lang_java">
                 Java
                 [<a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank">Wikipedia</a>]
             </label>
-            <label>
-                <input type="checkbox" name="programming_language" value="javascript">
+            <input type="checkbox" id="lang_javascript" name="programming_language" value="javascript">
+            <label for="lang_javascript">
                 JavsScript
                 [<a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">Wikipedia</a>]
             </label>
         </div>
         <div>
-            <label>
-                <input type="checkbox" name="programming_language" value="php">
+            <input type="checkbox" id="lang_php" name="programming_language" value="php">
+            <label for="lang_php">
                 PHP
                 [<a href="https://en.wikipedia.org/wiki/PHP" target="_blank">Wikipedia</a>]
             </label>
-            <label>
-                <input type="checkbox" name="programming_language" value="python">
+            <input type="checkbox" id="lang_python" name="programming_language" value="python">
+            <label for="lang_python">
                 Python
                 [<a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Wikipedia</a>]
             </label>
         </div>
         <div>
-            <label>
-                <input type="checkbox" name="programming_language" value="visual basic">
+            <input type="checkbox" id="lang_vb" name="programming_language" value="visual basic">
+            <label for="lang_vb">
                 Visual Basic
                 [<a href="https://en.wikipedia.org/wiki/Visual_Basic" target="_blank">Wikipedia</a>]
             </label>
-            <label>
-                <input type="checkbox" name="programming_language" value="other">
+            <input type="checkbox" id="lang_other" name="programming_language" value="other">
+            <label for="lang_other">
                 Other
             </label>
         </div>
