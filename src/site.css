@@ -1,3 +1,7 @@
+a.big-link:hover {
+    font-size: 150%;
+}
+
 .red {
     color: red;
 }
@@ -14,6 +18,19 @@
     text-decoration: underline;
 }
 
-a.big-link:hover {
-    font-size: 150%;
+#schedule table th,
+#schedule table td {
+    text-align: center;
+}
+
+#schedule table tbody tr:nth-child(odd) {
+    background-color: lightgrey;
+}
+
+#schedule table thead {
+    background-color: lightblue;
+}
+
+#events li > ol {
+    list-style: upper-alpha;
 }
