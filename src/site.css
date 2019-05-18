@@ -1,0 +1,19 @@
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+#education li.college {
+    font-weight: bold;
+}
+
+#education li.certificate {
+    text-decoration: underline;
+}
+
+a.big-link:hover {
+    font-size: 150%;
+}

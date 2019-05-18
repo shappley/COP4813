@@ -3,47 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome to My Webpage</title>
+    <link rel="stylesheet" href="../site.css">
 </head>
 <body>
 <h1>Stephen Shappley</h1>
 <img src="images/picture_of_me.png" width="200px" height="auto">
-<h2>About Me</h2>
-<p>
-    I'm a Computer Science major. I've worked as a software engineer at startups and Fortune 500 companies alike,
-    working on just about everything - from desktop to mobile to web - in logistics, entertainment, and security.
-</p>
-<p>That's really all there is.
-    There's two <span class="code">&lt;p&gt;</span> elements like the instructions said, but not much content.</p>
-<h2>Hobbies and Interests</h2>
-<p>
-    I enjoy programming. I've contributed to dozens of open source projects and my contributions have been accepted into
-    many major projects.
-</p>
-<p>
-    My other interest is food. I enjoy cooking but enjoy eating even more so.
-    I've recently started baking more since it was the one thing I was never very good at.
-    I'm not great at it, but I am getting better.
-</p>
-<h2>Education</h2>
-<p>
-    I'm currently working on a Bachelor of Science with a Computer Science concentration.
-    I've been working on it for the passed 6 years, which has been challenging in balancing work and school.
-</p>
-<ul>
-    <li>
-        Bachelor of Science in Computer Science from
-        <a target="_blank" href="https://en.wikipedia.org/wiki/University_of_North_Florida">UNF</a> (in progress)
-    </li>
-    <li>
-        Associate of Arts from
-        <a target="_blank" href="https://en.wikipedia.org/wiki/Florida_State_College_at_Jacksonville">FSCJ</a></li>
-    <li>
-        Oracle Certified Java Professional
-        (<a target="_blank" href="https://en.wikipedia.org/wiki/Oracle_Certification_Program">OCJP</a>)
-    </li>
-</ul>
+<div id="about">
+    <h2 class="red">About Me</h2>
+    <p>
+        I'm a Computer Science major. I've worked as a software engineer at startups and Fortune 500 companies alike,
+        working on just about everything - from desktop to mobile to web - in logistics, entertainment, and security.
+    </p>
+    <p>That's really all there is.
+        There's two <span class="code">&lt;p&gt;</span> elements like the instructions said, but not much content.</p>
+</div>
+<div id="hobbies">
+    <h2 class="blue">Hobbies and Interests</h2>
+    <p>
+        I enjoy programming. I've contributed to dozens of open source projects and my contributions have been accepted
+        into
+        many major projects.
+    </p>
+    <p>
+        My other interest is food. I enjoy cooking but enjoy eating even more so.
+        I've recently started baking more since it was the one thing I was never very good at.
+        I'm not great at it, but I am getting better.
+    </p>
+</div>
+<div id="education">
+    <h2>Education</h2>
+    <p>
+        I'm currently working on a Bachelor of Science with a Computer Science concentration.
+        I've been working on it for the passed 6 years, which has been challenging in balancing work and school.
+    </p>
+    <ul>
+        <li class="college">
+            Bachelor of Science in Computer Science from
+            <a class="big-link" target="_blank" href="https://en.wikipedia.org/wiki/University_of_North_Florida">UNF</a> (in progress)
+        </li>
+        <li class="college">
+            Associate of Arts from
+            <a class="big-link" target="_blank" href="https://en.wikipedia.org/wiki/Florida_State_College_at_Jacksonville">FSCJ</a></li>
+        <li class="certificate">
+            Oracle Certified Java Professional
+            (<a class="big-link" target="_blank" href="https://en.wikipedia.org/wiki/Oracle_Certification_Program">OCJP</a>)
+        </li>
+    </ul>
+</div>
 <footer>
-    <a href="./schedule.html">Class Schedule</a> | <a href="./account.html">Create Account</a> | <a href="#">ePortfolio</a>
+    <a class="big-link" href="./schedule.html">Class Schedule</a> |
+    <a class="big-link" href="./account.html">Create Account</a> |
+    <a class="big-link" href="#">ePortfolio</a>
 </footer>
 </body>
 </html>
