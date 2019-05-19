@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../site.css">
 </head>
 <body>
-<form action="https://unfinishedbusiness.app/alert.php" method="post">
+<form action="account.html" method="post">
     <div>
         <label for="first_name">First Name: </label>
         <input id="first_name" name="first_name" type="text">
@@ -34,29 +34,33 @@
     <div id="degree">
         <label>Degree Track:</label>
         <div>
-            <input type="radio" id="degree_cs" name="degree_track" value="Computer Science">
-            <label for="degree_cs">
+            <label for="degree_cs" class="radio">
                 Computer Science
                 [<a href="https://www.unf.edu/ccec/computing/Computer_Science_Program.aspx" target="_blank">Catalog</a>]
+                <input type="radio" id="degree_cs" name="degree_track" value="Computer Science">
+                <span class="checkmark"></span>
             </label>
-            <input type="radio" id="degree_isci" name="degree_track" value="Information Science">
-            <label for="degree_isci">
+            <label for="degree_isci" class="radio">
                 Information Science
                 [<a href="https://www.unf.edu/ccec/computing/Information_Science_Program.aspx"
                     target="_blank">Catalog</a>]
+                <input type="radio" id="degree_isci" name="degree_track" value="Information Science">
+                <span class="checkmark"></span>
             </label>
         </div>
         <div>
-            <input type="radio" id="degree_is" name="degree_track" value="Information Systems">
-            <label for="degree_is">
+            <label for="degree_is" class="radio">
                 Information Systems
                 [<a href="https://www.unf.edu/ccec/computing/Information_Systems_Program.aspx"
                     target="_blank">Catalog</a>]
+                <input type="radio" id="degree_is" name="degree_track" value="Information Systems">
+                <span class="checkmark"></span>
             </label>
-            <input type="radio" id="degree_it" name="degree_track" value="Information Technology">
-            <label for="degree_it">
+            <label for="degree_it" class="radio">
                 Information Technology
                 [<a href="https://www.unf.edu/ccec/computing/Information_Technology_Program.aspx" target="_blank">Catalog</a>]
+                <input type="radio" id="degree_it" name="degree_track" value="Information Technology">
+                <span class="checkmark"></span>
             </label>
         </div>
     </div>

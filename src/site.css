@@ -57,9 +57,10 @@ input[type="password"] {
 
 /* Customize the label (the container) */
 .checkbox, .radio {
+    min-width: 200px;
     position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
+    padding-left: 30px;
+    margin-bottom: 5px;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -68,7 +69,8 @@ input[type="password"] {
 }
 
 /* Hide the browser's default checkbox */
-.checkbox input {
+.checkbox input,
+.radio input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -77,7 +79,7 @@ input[type="password"] {
 }
 
 /* Create a custom checkbox */
-.checkmark {
+.checkbox .checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -86,9 +88,23 @@ input[type="password"] {
     background-color: grey;
 }
 
+.radio .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: grey;
+    border-radius: 50%;
+}
+
 /* When the checkbox is checked, add a blue background */
 .checkbox input:checked ~ .checkmark {
     background-color: blue;
+}
+
+.radio input:checked ~ .checkmark {
+    background-color: green;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -99,7 +115,8 @@ input[type="password"] {
 }
 
 /* Show the checkmark when checked */
-.checkbox input:checked ~ .checkmark:after {
+.checkbox input:checked ~ .checkmark:after,
+.radio input:checked ~ .checkmark:after {
     display: block;
 }
 
@@ -114,4 +131,13 @@ input[type="password"] {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+.radio .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
 }
