@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Processing</title>
+    <link rel="stylesheet" href="../css/site.css">
+    <script src="script.js"></script>
+</head>
+<body>
+<div id="paymentProcessing">
+    <h2>Enter Payment Information</h2>
+    <form onsubmit="return project2.validateForm();">
+        <div id="paymentSelection">
+            <label>
+                <input type="radio" name="paymentType" id="paymentTypeCreditCard" checked>
+                <img class="payment-image" src="images/AmEx.png">
+                <img class="payment-image" src="images/Discover.png">
+                <img class="payment-image" src="images/MasterCard.png">
+                <img class="payment-image" src="images/Visa.png">
+            </label>
+            <label>
+                <input type="radio" name="paymentType" id="paymentTypePaypal">
+                <img class="payment-image" src="images/PayPal.png">
+            </label>
+        </div>
+        <div id="paymentInformation">
+            <div id="paypalInfo" style="display:none;">
+                <div>
+                    <label for="paypalEmail">Email Address</label>
+                    <input type="text" name="paypalEmail" id="paypalEmail" required>
+                </div>
+                <div>
+                    <label for="paypalPassword">Password</label>
+                    <input type="password" name="paypalPassword" id="paypalPassword" required>
+                </div>
+            </div>
+            <div id="creditCardInfo">
+                <div>
+                    <label for="firstName">First Name</label>
+                    <input type="text" name="firstName" id="firstName" required>
+                </div>
+                <div>
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName" required>
+                </div>
+                <div>
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" required>
+                </div>
+                <div>
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="city" required>
+                </div>
+                <div>
+                    <label>Zip</label>
+                    <input type="text" name="zip" id="zip" required>
+                </div>
+                <div>
+                    <label>State</label>
+                    <select name="state" id="state">
+                        <option>Select State</option>
+                        <option>Alabama</option>
+                        <option>Alaska</option>
+                        <option>Arizona</option>
+                        <option>Arkansas</option>
+                        <option>California</option>
+                        <option>Colorado</option>
+                        <option>Connecticut</option>
+                        <option>Delaware</option>
+                        <option>Florida</option>
+                        <option>Georgia</option>
+                        <option>Hawaii</option>
+                        <option>Idaho</option>
+                        <option>Illinois</option>
+                        <option>Indiana</option>
+                        <option>Iowa</option>
+                        <option>Kansas</option>
+                        <option>Kentucky</option>
+                        <option>Louisiana</option>
+                        <option>Maine</option>
+                        <option>Maryland</option>
+                        <option>Massachusetts</option>
+                        <option>Michigan</option>
+                        <option>Minnesota</option>
+                        <option>Mississippi</option>
+                        <option>Missouri</option>
+                        <option>Montana</option>
+                        <option>Nebraska</option>
+                        <option>Nevada</option>
+                        <option>New Hampshire</option>
+                        <option>New Jersey</option>
+                        <option>New Mexico</option>
+                        <option>New York</option>
+                        <option>North Carolina</option>
+                        <option>North Dakota</option>
+                        <option>Ohio</option>
+                        <option>Oklahoma</option>
+                        <option>Oregon</option>
+                        <option>Pennsylvania</option>
+                        <option>Rhode Island</option>
+                        <option>South Carolina</option>
+                        <option>South Dakota</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Utah</option>
+                        <option>Vermont</option>
+                        <option>Virginia</option>
+                        <option>Washington</option>
+                        <option>West Virginia</option>
+                        <option>Wisconsin</option>
+                        <option>Wyoming</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Email Address</label>
+                    <input type="text" name="ccEmailAddress" id="ccEmailAddress" required>
+                </div>
+                <div>
+                    <label>Name on Card</label>
+                    <input type="text" name="cardholderName" id="cardholderName" required>
+                </div>
+                <div>
+                    <label>Card Number</label>
+                    <input type="text" name="cardNumber" id="cardNumber" required>
+                </div>
+                <div>
+                    <label>CVV2/CVC</label>
+                    <input type="text" name="securityCode" id="securityCode" required>
+                </div>
+                <div>
+                    <label>Expiration Date</label>
+                    <input type="date" name="expirationDate" id="expirationDate" required>
+                </div>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

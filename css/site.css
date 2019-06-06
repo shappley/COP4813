@@ -33,8 +33,9 @@ form input[type="checkbox"] + label {
 }
 
 form input[type="text"],
-input[type="date"],
-input[type="password"] {
+form input[type="date"],
+form input[type="password"],
+form select {
     width: 150px;
 }
 
@@ -69,6 +70,11 @@ input[type="password"] {
 
 #events li > ol {
     list-style: upper-alpha;
+}
+
+.payment-image {
+    width: 75px;
+    height: auto;
 }
 
 /* Customize the label (the container) */
