@@ -12,14 +12,16 @@
     <form onsubmit="return project2.validateForm();">
         <div id="paymentSelection">
             <label>
-                <input type="radio" name="paymentType" id="paymentTypeCreditCard" checked>
+                <input onchange="project2.updateForm(this);"
+                       type="radio" name="paymentType" id="paymentTypeCreditCard" checked>
                 <img class="payment-image" src="images/AmEx.png">
                 <img class="payment-image" src="images/Discover.png">
                 <img class="payment-image" src="images/MasterCard.png">
                 <img class="payment-image" src="images/Visa.png">
             </label>
             <label>
-                <input type="radio" name="paymentType" id="paymentTypePaypal">
+                <input onchange="project2.updateForm(this);"
+                       type="radio" name="paymentType" id="paymentTypePaypal">
                 <img class="payment-image" src="images/PayPal.png">
             </label>
         </div>
@@ -57,7 +59,7 @@
                 </div>
                 <div>
                     <label for="state">State</label>
-                    <select name="state" id="state">
+                    <select name="state" id="state" required>
                         <option>Select State</option>
                         <option>Alabama</option>
                         <option>Alaska</option>
