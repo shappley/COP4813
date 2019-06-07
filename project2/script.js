@@ -92,9 +92,7 @@ var project2 = project2 || {};
 
     var validateControl = function (control, name, length) {
         var val = control.value;
-        return testNumber(val)
-            && ((name === "zip" && testLength(val, 5, true))
-                || (name === "cvc" && testLength(val, 3, true)));
+        return testLength(val, length, true);
     };
 
     var validateCreditCard = function (value) {
