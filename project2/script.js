@@ -15,10 +15,6 @@ String.prototype.leftPad = function (len, str) {
 var project2 = project2 || {};
 
 (function () {
-    project2.validateForm = function () {
-        return false;
-    };
-
     project2.updateForm = function (selected) {
         if (selected) {
             var paypal = document.getElementById("paypalInfo");
@@ -43,6 +39,49 @@ var project2 = project2 || {};
             + ("" + (date.getUTCMonth() + 1)).leftPad(2, "0")
             + "-" + "01";
         input.value = ds;
+    };
+
+    project2.validateForm = function () {
+        return false;
+    };
+
+    var testLength = function (value, length, exactLength) {
+        return (exactLength && value.length === length) || value.length >= length;
+    };
+
+    var testNumber = function (value) {
+        return !isNaN(parseFloat(value));
+    };
+
+    var validateControl = function (control, name, length) {
+        var val = control.value;
+        return testNumber(val)
+            && ((name === "zip" && testLength(val, 5, true))
+                || (name === "cvc" && testLength(val, 3, true)));
+    };
+
+    var validateCreditCard = function (value) {
+        return /^3\d{15}|[4-6]\d{16}$/.test(value.replace(/\s/g, ""));
+    };
+
+    var validateDate = function (value) {
+        var date = new Date(value);
+        var today = new Date();
+        return date.getFullYear() >= today.getFullYear()
+            && date.getMonth() > today.getMonth();
+    };
+
+    var validateEmail = function (value) {
+        return /^[A-Za-z0-9_+.]+@[A-Za-z0-9_+.]+\.[A-Za-z0-9-_]+$/.test(value);
+    };
+
+    var validatePassword = function (value, minLength) {
+        return testLength(value, minLength, false);
+    };
+
+    var validateState = function () {
+        var state = document.getElementById("state");
+        return state && state.selected && state.selected.value;
     };
 
     //helper function that recursively adds/removes the `required` attribute.
