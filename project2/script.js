@@ -79,9 +79,9 @@ var project2 = project2 || {};
         return testLength(value, minLength, false);
     };
 
-    var validateState = function () {
+    project2.validateState = function () {
         var state = document.getElementById("state");
-        return state && state.selected && state.selected.value;
+        return state.selectedIndex !== 0;
     };
 
     //helper function that recursively adds/removes the `required` attribute.
