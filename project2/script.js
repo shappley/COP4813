@@ -40,16 +40,35 @@ var project2 = project2 || {};
 
     project2.formatDateInput = function (input) {
         var date = new Date(input.value);
-        var ds = date.getFullYear() + "-"
+        input.value = date.getFullYear() + "-"
             + ("" + (date.getUTCMonth() + 1)).leftPad(2, "0")
             + "-" + "01";
-        input.value = ds;
     };
 
     project2.validateForm = function () {
         if ($id("paymentTypeCreditCard").checked) {
-            //TODO
-        } else if ($id("paymentTypePaypal").checked) {
+            var zip = $id("zip");
+            var email = $id("ccEmailAddress").value;
+            var cardNumber = $id("cardNumber").value;
+            var securityCode = $id("securityCode");
+            var expirationDate = $id("expirationDate").value;
+            if (!validateState()) {
+                alert("You must select a state");
+            } else if (!validateControl(zip, "zip", 5)) {
+                alert("You must enter a valid, 5-digit Zip Code");
+            } else if (!validateEmail(email)) {
+                alert("Enter a valid email address");
+            } else if (!validateCreditCard(cardNumber)) {
+                alert("You must enter a valid Credit Card number");
+            } else if (!validateControl(securityCode, "cvc", 3)) {
+                alert("You must enter a valid, 3-digit Security Code")
+            } else if (!validateDate(expirationDate)) {
+                alert("You must enter an Expiration Date of at least one (1) month in the future.")
+            } else {
+                alert("Payment Submitted");
+            }
+        }
+        else if ($id("paymentTypePaypal").checked) {
             var email = $id("paypalEmail").value;
             var password = $id("paypalPassword").value;
             if (!validateEmail(email)) {
@@ -85,12 +104,13 @@ var project2 = project2 || {};
     var validateDate = function (value) {
         var date = new Date(value);
         var today = new Date();
-        return date.getFullYear() >= today.getFullYear()
-            && date.getMonth() > today.getMonth();
+        var years = (date.getFullYear() - today.getFullYear());
+        var months = (date.getMonth() + 2) - (today.getMonth() + 1);
+        return ((years * 12) + months) >= 1;
     };
 
     var validateEmail = function (value) {
-        return /^[A-Za-z0-9_+.]+@[A-Za-z0-9_+.]+\.[A-Za-z0-9-_]+$/.test(value);
+        return /^[A-Za-z0-9-_+.]+@([A-Za-z0-9-_+]+\.)*[A-Za-z0-9-_+]+\.[A-Za-z0-9-_]+$/.test(value);
     };
 
     var validatePassword = function (value, minLength) {
