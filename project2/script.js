@@ -15,10 +15,15 @@ String.prototype.leftPad = function (len, str) {
 var project2 = project2 || {};
 
 (function () {
+
+    var $id = function (e) {
+        return document.getElementById(e);
+    };
+
     project2.updateForm = function (selected) {
         if (selected) {
-            var paypal = document.getElementById("paypalInfo");
-            var cc = document.getElementById("creditCardInfo");
+            var paypal = $id("paypalInfo");
+            var cc = $id("creditCardInfo");
             if (selected.id === "paymentTypePaypal") {
                 paypal.style.display = ("block");
                 cc.style.display = ("none");
@@ -42,6 +47,19 @@ var project2 = project2 || {};
     };
 
     project2.validateForm = function () {
+        if ($id("paymentTypeCreditCard").checked) {
+            //TODO
+        } else if ($id("paymentTypePaypal").checked) {
+            var email = $id("paypalEmail").value;
+            var password = $id("paypalPassword").value;
+            if (!validateEmail(email)) {
+                alert("Enter a valid email address");
+            } else if (!validatePassword(password, 8)) {
+                alert("Password must be >= 8 characters");
+            } else {
+                alert("Payment Submitted");
+            }
+        }
         return false;
     };
 
@@ -79,8 +97,8 @@ var project2 = project2 || {};
         return testLength(value, minLength, false);
     };
 
-    project2.validateState = function () {
-        var state = document.getElementById("state");
+    var validateState = function () {
+        var state = $id("state");
         return state.selectedIndex !== 0;
     };
 
