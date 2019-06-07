@@ -8,21 +8,23 @@
 </head>
 <body>
 <div id="paymentProcessing">
-    <h2 class="red">Enter Payment Information</h2>
+    <h2 class="green">Enter Payment Information</h2>
     <form onsubmit="return project2.validateForm();">
         <div id="paymentSelection">
-            <label>
+            <label class="radio">
+                <img class="payment-image credit-card" src="images/AmEx.png">
+                <img class="payment-image credit-card" src="images/Discover.png">
+                <img class="payment-image credit-card" src="images/MasterCard.png">
+                <img class="payment-image credit-card" src="images/Visa.png">
                 <input onchange="project2.updateForm(this);"
                        type="radio" name="paymentType" id="paymentTypeCreditCard" checked>
-                <img class="payment-image" src="images/AmEx.png">
-                <img class="payment-image" src="images/Discover.png">
-                <img class="payment-image" src="images/MasterCard.png">
-                <img class="payment-image" src="images/Visa.png">
+                <span class="checkmark"></span>
             </label>
-            <label>
+            <label class="radio">
+                <img class="payment-image" src="images/PayPal.png">
                 <input onchange="project2.updateForm(this);"
                        type="radio" name="paymentType" id="paymentTypePaypal">
-                <img class="payment-image" src="images/PayPal.png">
+                <span class="checkmark"></span>
             </label>
         </div>
         <div id="paymentInformation">
