@@ -131,7 +131,9 @@
                 </div>
                 <div>
                     <label for="expirationDate">Expiration Date</label>
-                    <input type="date" name="expirationDate" id="expirationDate" required>
+                    <input onchange="project2.formatDateInput(this)" type="date"
+                           min="2017-01-01" max="2020-12-31" value="2019-04-01"
+                           name="expirationDate" id="expirationDate" required>
                 </div>
             </div>
             <div>

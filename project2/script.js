@@ -1,5 +1,16 @@
 "use strict";
 
+//quick helper function to leftpad a string
+//the month variable returned by a Date object can be single digits
+//which doesn't work when used in the "value" attribute
+String.prototype.leftPad = function (len, str) {
+    var s = "";
+    for (var i = this.length; i < len; i++) {
+        s += str;
+    }
+    return s + this;
+};
+
 //scope the project because polluting global namespace = bad
 var project2 = project2 || {};
 
@@ -24,6 +35,14 @@ var project2 = project2 || {};
                 toggleRequired(cc, true);
             }
         }
+    };
+
+    project2.formatDateInput = function (input) {
+        var date = new Date(input.value);
+        var ds = date.getFullYear() + "-"
+            + ("" + (date.getUTCMonth() + 1)).leftPad(2, "0")
+            + "-" + "01";
+        input.value = ds;
     };
 
     //helper function that recursively adds/removes the `required` attribute.
