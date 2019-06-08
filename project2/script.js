@@ -87,7 +87,7 @@ var project2 = project2 || {};
     };
 
     var testNumber = function (value) {
-        return !isNaN(parseFloat(value));
+        return /^\d+$/.test("" + value);
     };
 
     var validateControl = function (control, name, length) {
