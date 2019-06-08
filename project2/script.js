@@ -96,7 +96,7 @@ var project2 = project2 || {};
     };
 
     var validateCreditCard = function (value) {
-        return /^3\d{15}|[4-6]\d{16}$/.test(value.replace(/\s/g, ""));
+        return /^(3\d{14}|[4-6]\d{15})$/.test(value.replace(/\s/g, ""));
     };
 
     var validateDate = function (value) {
