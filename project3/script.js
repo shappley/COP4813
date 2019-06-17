@@ -14,7 +14,15 @@ var project3 = project3 || {};
     };
 
     var calcMedian = function (array) {
-        return sorted(array)[Math.ceil(array.length / 2)];
+        var sort = sorted(array);
+        var median = 0;
+        if (sort.length % 2 === 0) {
+            //minus 1 since arrays are zero-based
+            var middle = (sort.length / 2) - 1;
+            return calcMean([sort[middle], sort[middle + 1]]);
+        } else {
+            return median = sort[Math.ceil(array.length / 2)].toFixed(2);
+        }
     };
 
     var calcMode = function (array) {
@@ -40,7 +48,7 @@ var project3 = project3 || {};
     };
 
     var calcStdDev = function (array) {
-        return Math.sqrt(calcVariance(array));
+        return Math.sqrt(calcVariance(array)).toFixed(2);
     };
 
     var calcSum = function (array) {
@@ -58,7 +66,7 @@ var project3 = project3 || {};
             variance += Math.pow((value - mean), 2);
         });
         variance /= array.length;
-        return variance;
+        return variance.toFixed(2);
     };
 
     var findMax = function (array) {
@@ -87,7 +95,8 @@ var project3 = project3 || {};
             alert("You must enter 5 to 20 numbers between 0 and 100.");
             return false;
         }
-        console.log(calcVariance(numbers));
+
+        console.log(calcMedian(numbers));
         return false;
     };
 })();
