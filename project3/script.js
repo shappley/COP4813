@@ -3,6 +3,10 @@
 var project3 = project3 || {};
 
 (function () {
+    var id = function (id) {
+        return document.getElementById(id);
+    };
+
     var sorted = function (array) {
         return array.slice(0).sort(function (a, b) {
             return a - b;
@@ -74,7 +78,7 @@ var project3 = project3 || {};
         array.forEach(function (value) {
             if (value > max) max = value;
         });
-        return max;
+        return max.toFixed(2);
     };
 
     var findMin = function (array) {
@@ -82,11 +86,11 @@ var project3 = project3 || {};
         array.forEach(function (value) {
             if (value < min) min = value;
         });
-        return min;
+        return min.toFixed(2);
     };
 
     project3.performStatistics = function () {
-        var numbers = document.getElementById("numbers").value.split(" ").map(function (value) {
+        var numbers = id("numbers").value.split(" ").map(function (value) {
             return parseFloat(value);
         });
         var min, max;
@@ -96,7 +100,15 @@ var project3 = project3 || {};
             return false;
         }
 
-        console.log(calcMedian(numbers));
+        id("max").value = findMax(numbers);
+        id("min").value = findMin(numbers);
+        id("sum").value = calcSum(numbers);
+        id("mean").value = calcMean(numbers);
+        id("median").value = calcMedian(numbers);
+        id("mode").value = calcMode(numbers);
+        id("stddev").value = calcStdDev(numbers);
+        id("variance").value = calcVariance(numbers);
+
         return false;
     };
 })();
