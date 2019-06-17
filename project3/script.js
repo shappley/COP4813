@@ -40,7 +40,7 @@ var project3 = project3 || {};
     };
 
     var calcStdDev = function (array) {
-
+        return Math.sqrt(calcVariance(array));
     };
 
     var calcSum = function (array) {
@@ -52,7 +52,13 @@ var project3 = project3 || {};
     };
 
     var calcVariance = function (array) {
-
+        var mean = calcMean(array);
+        var variance = 0;
+        array.forEach(function (value) {
+            variance += Math.pow((value - mean), 2);
+        });
+        variance /= array.length;
+        return variance;
     };
 
     var findMax = function (array) {
@@ -81,7 +87,7 @@ var project3 = project3 || {};
             alert("You must enter 5 to 20 numbers between 0 and 100.");
             return false;
         }
-        console.log(calcMode(numbers));
+        console.log(calcVariance(numbers));
         return false;
     };
 })();
