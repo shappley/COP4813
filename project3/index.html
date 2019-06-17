@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistical Calculator</title>
+    <link rel="stylesheet" href="../css/site.css">
+    <script src="script.js"></script>
+</head>
+<body id="stats">
+<h2>Statistical Calculator</h2>
+<form onsubmit="return project3.performStatistics();">
+    <div>
+        <label>Values</label>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </div>
+    <div>
+        <textarea id="numbers" placeholder="Enter 5 to 20 numbers, each separated by a space" required></textarea>
+    </div>
+    <div>
+        <label for="max">Max</label>
+        <input type="text" id="max" readonly disabled>
+    </div>
+    <div>
+        <label for="min">Min</label>
+        <input type="text" id="min" readonly disabled>
+    </div>
+    <div>
+        <label for="sum">Sum</label>
+        <input type="text" id="sum" readonly disabled>
+    </div>
+    <div>
+        <label for="mean">Mean</label>
+        <input type="text" id="mean" readonly disabled>
+    </div>
+    <div>
+        <label for="median">Median</label>
+        <input type="text" id="median" readonly disabled>
+    </div>
+    <div>
+        <label for="mode">Mode</label>
+        <input type="text" id="mode" readonly disabled>
+    </div>
+    <div>
+        <label for="stddev">Standard Deviation</label>
+        <input type="text" id="stddev" readonly disabled>
+    </div>
+    <div>
+        <label for="variance">Variance</label>
+        <input type="text" id="variance" readonly disabled>
+    </div>
+</form>
+</body>
+</html>

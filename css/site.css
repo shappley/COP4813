@@ -39,6 +39,10 @@ form select {
     width: 150px;
 }
 
+form textarea {
+    width: 325px;
+}
+
 .red {
     color: red;
 }
@@ -49,6 +53,10 @@ form select {
 
 .green {
     color: green;
+}
+
+#stats form label {
+    font-weight: bold;
 }
 
 #education li.college {
