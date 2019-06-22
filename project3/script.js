@@ -19,13 +19,12 @@ var project3 = project3 || {};
 
     var calcMedian = function (array) {
         var sort = sorted(array);
-        var median = 0;
         if (sort.length % 2 === 0) {
             //minus 1 since arrays are zero-based
             var middle = (sort.length / 2) - 1;
             return calcMean([sort[middle], sort[middle + 1]]);
         } else {
-            return median = sort[Math.ceil(array.length / 2)].toFixed(2);
+            return sort[Math.ceil(array.length / 2)].toFixed(2);
         }
     };
 
@@ -100,8 +99,8 @@ var project3 = project3 || {};
             return false;
         }
 
-        id("max").value = findMax(numbers);
-        id("min").value = findMin(numbers);
+        id("max").value = max;
+        id("min").value = min;
         id("sum").value = calcSum(numbers);
         id("mean").value = calcMean(numbers);
         id("median").value = calcMedian(numbers);
