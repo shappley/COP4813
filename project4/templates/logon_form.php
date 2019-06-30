@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Logon</title>
+    <title>User Authentication</title>
     <link rel="stylesheet" href="../css/site.css">
 </head>
 <body>
