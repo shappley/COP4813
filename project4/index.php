@@ -42,7 +42,7 @@ function processPageRequest()
 function readMovieData()
 {
     $csv = array_map('str_getcsv', file('./data/cart.db'));
-    return $csv[0];
+    return $csv != null ? $csv[0] : [];
 }
 
 function removeMovieFromCart($movieID)
