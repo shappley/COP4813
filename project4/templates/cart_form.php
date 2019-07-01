@@ -36,5 +36,9 @@
         </table>
     <?php endif; ?>
 </div>
+<div>
+    <button onclick="location.href='./search.php'">Add Movie</button>
+    <button onclick="return project4.confirmCheckout();">Checkout</button>
+</div>
 </body>
 </html>
