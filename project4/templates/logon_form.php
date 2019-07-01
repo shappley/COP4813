@@ -8,15 +8,11 @@
 <body>
 <form action="./logon.php" method="post">
     <h2>myMovies Xpress!</h2>
-    <?php
-    $display = "none";
-    if (!empty($message)) {
-        $display = "block";
-    }
-    ?>
-    <div style="display: <?php echo $display; ?>;">
-        <label class="error"><?php echo $message; ?></label>
-    </div>
+    <?php if (!empty($message)): ?>
+        <div>
+            <label class="error"><?php echo $message; ?></label>
+        </div>
+    <?php endif; ?>
     <div>
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required>
