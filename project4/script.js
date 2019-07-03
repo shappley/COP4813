@@ -14,4 +14,8 @@ var project4 = project4 || {};
     project4.confirmCheckout = function () {
         return confirm("Are you sure you want to checkout?");
     };
+
+    project4.addMovie = function (movieId) {
+
+    };
 })();
