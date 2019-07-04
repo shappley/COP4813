@@ -52,8 +52,6 @@ function checkout($name, $address)
         </script>
         <p>Message sent with response {$result}.</p>
     ";
-
-    header("Location: ./index.php");
 }
 
 function displayCart()
