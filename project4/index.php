@@ -44,9 +44,11 @@ function checkout($name, $address)
 
     echo "
         <script>
-            setTimeout(function() {
-                window.location.replace('./index.php')
-            },7500)
+            window.onload = function (ev) { 
+                setTimeout(function() {
+                    window.location.replace('./index.php')
+                }, 7500);
+            };
         </script>
         <p>Message sent with response {$result}.</p>
     ";
