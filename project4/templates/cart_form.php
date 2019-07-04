@@ -20,7 +20,7 @@
                     <td><img class="poster" src="<?php echo $omdb['Poster'] ?>"></td>
                     <td><?php echo $omdb['Title'] . " (" . $omdb['Year'] . ")" ?></td>
                     <td>
-                        <a href="#" onclick="return project4.confirmRemove('<?php echo $omdb["Title"]; ?>');">
+                        <a href="#" onclick="return project4.confirmRemove('<?= $omdb["Title"]; ?>', '<?= $omdb["imdbID"]; ?>');">
                             &cross;
                         </a>
                     </td>

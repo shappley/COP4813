@@ -12,7 +12,7 @@
                         </a>
                     </td>
                     <td>
-                        <a onclick="return project4.addMovie('<?= $movie["imdbID"]; ?>');">
+                        <a href="#" onclick="return project4.addMovie('<?= $movie["imdbID"]; ?>');">
                             &plus;
                         </a>
                     </td>
