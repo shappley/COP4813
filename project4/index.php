@@ -1,6 +1,6 @@
 <?php
 session_start();
-//require_once('/home/common/mail.php');
+require_once('/home/common/mail.php');
 processPageRequest();
 
 function getOmdbDataById($id)
@@ -20,7 +20,27 @@ function addMovieToCart($movieID)
 
 function checkout($name, $address)
 {
-    //TODO
+    $movies = readMovieData();
+    $message = "<table><tbody>";
+    foreach ($movies as $movie) {
+        $omdb = getOmdbDataById($movie);
+        $message .= "
+            <tr>
+            <td><img style='height: 100px;' src='{$omdb['Poster']}'></td>
+            <td><a href='https://www.imdb.com/title/{$omdb['imdbID']}/'>{$omdb['Title']} ({$omdb['Year']})</a></td>
+            </tr>
+        ";
+    }
+    $message .= "</tbody></table>";
+
+    for ($i = 0; $i < 10; $i++) {
+        $result = sendMail("854505548", $address, $name, "Your Receipt From myMovies Express!", $message);
+        if ($result > 0) {
+            sleep($result);
+        } else {
+            break;
+        }
+    }
 }
 
 function displayCart()
