@@ -41,6 +41,8 @@ function checkout($name, $address)
             break;
         }
     }
+
+    header("Location: ./index.php");
 }
 
 function displayCart()
