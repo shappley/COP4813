@@ -42,7 +42,7 @@ function checkout($name, $address)
         }
     }
 
-    header("Location: ./index.php");
+    echo "Message sent with response " . $result;
 }
 
 function displayCart()
