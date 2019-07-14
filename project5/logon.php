@@ -1,4 +1,5 @@
 <?php
+require_once("Template.php");
 processPageRequest();
 
 function authenticateUser($username, $password)
@@ -68,7 +69,13 @@ function getUser($username, $password)
 
 function displayLoginForm($message = "")
 {
-    require_once("./templates/logon_form.php");
+    $data = array(
+        "title" => "Log on",
+        "page_content" => "./templates/logon/logon_form.php",
+        "message" => $message
+    );
+    $template = new Template("./templates/template.php", $data);
+    echo $template->render();
 }
 
 function processPageRequest()

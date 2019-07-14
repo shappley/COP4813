@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Authentication</title>
-    <link rel="stylesheet" href="../css/site.css">
-</head>
-<body>
 <form action="./logon.php" method="post">
     <h2>myMovies Xpress!</h2>
     <?php if (!empty($message)): ?>
@@ -29,5 +21,3 @@
 <footer>
     <a href="../index.html">ePortfolio</a>
 </footer>
-</body>
-</html>
