@@ -15,6 +15,46 @@ function authenticateUser($username, $password)
     }
 }
 
+function createAccount($username, $password, $displayName, $emailAddress)
+{
+    //TODO
+}
+
+function displayCreateAccountForm()
+{
+    //TODO
+}
+
+function displayForgotPasswordForm()
+{
+    //TODO
+}
+
+function displayResetPasswordForm($userId)
+{
+    //TODO
+}
+
+function resetPassword($userId, $password)
+{
+    //TODO
+}
+
+function sendForgotPasswordEmail($username)
+{
+    //TODO
+}
+
+function sendValidationEmail($userId, $displayName, $emailAddress)
+{
+    //TODO
+}
+
+function validateAccount($userId)
+{
+    //TODO
+}
+
 function getUser($username, $password)
 {
     $credentials = array_map("str_getcsv", file("data/credentials.db"));
