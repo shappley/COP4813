@@ -1,14 +1,17 @@
 <?php
+require_once '/home/common/mail.php';
+require_once '/home/common/dbInterface.php';
 require_once("Template.php");
 processPageRequest();
 
 function authenticateUser($username, $password)
 {
-    $user = getUser($username, $password);
+    $user = validateUser($username, $password);
     if ($user !== null) {
         session_start();
-        $_SESSION["username"] = $user[0];
-        $_SESSION["email"] = $user[3];
+        $_SESSION["user_id"] = $user[0];
+        $_SESSION["username"] = $user[1];
+        $_SESSION["email"] = $user[2];
         header("Location: ./index.php");
         exit;
     } else {
@@ -54,17 +57,6 @@ function sendValidationEmail($userId, $displayName, $emailAddress)
 function validateAccount($userId)
 {
     //TODO
-}
-
-function getUser($username, $password)
-{
-    $credentials = array_map("str_getcsv", file("data/credentials.db"));
-    foreach ($credentials as $user) {
-        if ($user[0] === $username && $user[1] === $password) {
-            return $user;
-        }
-    }
-    return null;
 }
 
 function displayLoginForm($message = "")
