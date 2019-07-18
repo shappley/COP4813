@@ -33,17 +33,17 @@ function createAccount($username, $password, $displayName, $emailAddress)
 
 function displayCreateAccountForm()
 {
-    //TODO
+    template("./templates/logon/create_form.php");
 }
 
 function displayForgotPasswordForm()
 {
-    //TODO
+    template("./templates/logon/forgot_form.php");
 }
 
 function displayResetPasswordForm($userId)
 {
-    //TODO
+    template("./templates/logon/reset_form.php", array("userId" => $userId));
 }
 
 function resetPassword($userId, $password)
@@ -72,23 +72,50 @@ function displayLoginForm($message = "")
         "title" => "Log on",
         "message" => $message
     );
-    $template = new Template("./templates/template.php", "./templates/logon/logon_form.php", $data);
-    echo $template->render();
+    template("./templates/logon/logon_form.php", $data);
 }
 
 function processPageRequest()
 {
-    unset($_SESSION["username"]);
-    unset($_SESSION["email"]);
-    if (posted()) {
-        authenticateUser($_POST["username"], $_POST["password"]);
+    session_unset();
+    if (isset($_POST) && isset($_POST["action"])) {
+        $action = $_POST["action"];
+        if ($action === "create") {
+            createAccount(
+                $_POST["username"], $_POST["password"],
+                $_POST["displayName"], $_POST["emailAddress"]
+            );
+        } else if ($action === "forgot") {
+            sendForgotPasswordEmail($_POST["username"]);
+        } else if ($action === "login") {
+            authenticateUser($_POST["username"], $_POST["password"]);
+        } else if ($action === "reset") {
+            resetPassword($_POST["userId"], $_POST["password"]);
+        } else {
+            displayLoginForm();
+        }
+    } else if (isset($_GET) && isset($_GET["action"]) && $_GET["action"] === "validate") {
+        validateAccount($_GET["userId"]);
+    } else if (isset($_GET) && isset($_GET["form"])) {
+        $form = $_GET["form"];
+        if ($form === "create") {
+            displayCreateAccountForm();
+        } else if ($form === "forgot") {
+            displayForgotPasswordForm();
+        } else if ($form === "reset") {
+            displayResetPasswordForm($_GET["userId"]);
+        }
     } else {
         displayLoginForm();
     }
 }
 
-function posted()
+function template($template_file, $data = array())
 {
-    return isset($_POST["username"]) && !empty($_POST["username"])
-        && isset($_POST["password"]) && !empty($_POST["password"]);
+    $template = new Template(
+        "./templates/template.php",
+        $template_file,
+        $data
+    );
+    echo $template->render();
 }
