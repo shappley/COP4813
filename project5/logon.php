@@ -58,7 +58,25 @@ function resetPassword($userId, $password)
 
 function sendForgotPasswordEmail($username)
 {
-    //TODO
+    $user = getUserData($username);
+    if ($user !== null) {
+        $url = "http://[server_IP_address]/~[student id]/project5/logon.php?form=reset&user_id={$user[0]}";
+        $message = "
+<h2>myMovies Express!</h2>
+<p>Dear {$username},</p>
+<p>it looks like you forgot your password like a retard.</p>
+
+<p>
+We have terrible security so I could just email you your password in plain text,
+but, instead, you should click 
+<a href='http://[server_IP_address]/~[studentID]/project5/logon.php?form=reset&user_id={}'>this link</a> to reset it.
+</p>
+";
+        keepSendingMailUntilItActuallyWorks(
+            $user[2], $user[1],
+            "Forgot Password", $message
+        );
+    }
 }
 
 function sendValidationEmail($userId, $displayName, $emailAddress)
@@ -123,4 +141,9 @@ function template($template_file, $data = array())
         $data
     );
     echo $template->render();
+}
+
+function keepSendingMailUntilItActuallyWorks($email_address, $display_name, $subject, $message)
+{
+    //TODO
 }
