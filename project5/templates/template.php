@@ -8,10 +8,10 @@
 </head>
 <body>
 <?php
-if (file_exists($page_content)) {
-    require_once($page_content);
+if (file_exists($content)) {
+    require_once($content);
 } else {
-    echo $page_content;
+    echo $content;
 }
 ?>
 </body>

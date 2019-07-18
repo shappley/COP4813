@@ -1,6 +1,6 @@
 <?php
-require_once '/home/common/mail.php';
-require_once '/home/common/dbInterface.php';
+//require_once '/home/common/mail.php';
+//require_once '/home/common/dbInterface.php';
 require_once("Template.php");
 processPageRequest();
 
@@ -21,7 +21,14 @@ function authenticateUser($username, $password)
 
 function createAccount($username, $password, $displayName, $emailAddress)
 {
-    //TODO
+    $id = addUser($username, $password, $displayName, $emailAddress);
+    if ($id === 0) {
+        displayLoginForm("The provided username already exists");
+    } else if ($id > 0) {
+        sendValidationEmail($id, $displayName, $emailAddress);
+    } else {
+        displayLoginForm("An error occurred ({$id})");
+    }
 }
 
 function displayCreateAccountForm()
@@ -63,10 +70,9 @@ function displayLoginForm($message = "")
 {
     $data = array(
         "title" => "Log on",
-        "page_content" => "./templates/logon/logon_form.php",
         "message" => $message
     );
-    $template = new Template("./templates/template.php", $data);
+    $template = new Template("./templates/template.php", "./templates/logon/logon_form.php", $data);
     echo $template->render();
 }
 

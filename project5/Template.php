@@ -4,8 +4,9 @@ class Template
 {
     protected $path, $data;
 
-    public function __construct($path, $data = array())
+    public function __construct($path, $content, $data = array())
     {
+        $data["content"] = $content;
         $this->path = $path;
         $this->data = $data;
     }
