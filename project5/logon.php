@@ -1,6 +1,6 @@
 <?php
-//require_once '/home/common/mail.php';
-//require_once '/home/common/dbInterface.php';
+require_once '/home/common/mail.php';
+require_once '/home/common/dbInterface.php';
 require_once("Template.php");
 processPageRequest();
 
@@ -48,7 +48,12 @@ function displayResetPasswordForm($userId)
 
 function resetPassword($userId, $password)
 {
-    //TODO
+    $status = resetUserPassword($userId, $password);
+    if ($status) {
+        displayLoginForm("Password reset successfully");
+    } else {
+        displayLoginForm("An error occurred. Try again later.");
+    }
 }
 
 function sendForgotPasswordEmail($username)
