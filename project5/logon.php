@@ -62,15 +62,15 @@ function sendForgotPasswordEmail($username)
     if ($user !== null) {
         $url = "http://139.62.210.181/~ss412345/project5/logon.php?form=reset&user_id={$user[0]}";
         $message = "
-<h2>myMovies Express!</h2>
-<p>Dear {$username},</p>
-<p>it looks like you forgot your password.</p>
-<p>
-We have terrible security so I could just email you your password in plain text,
-but, instead, you should click 
-<a href='{$url}'>this link</a> to reset it.
-</p>
-";
+            <h2>myMovies Express!</h2>
+            <p>Dear {$username},</p>
+            <p>it looks like you forgot your password.</p>
+            <p>
+            We have terrible security so I could just email you your password in plain text,
+            but, instead, you should click 
+            <a href='{$url}'>this link</a> to reset it.
+            </p>
+        ";
         keepSendingMailUntilItActuallyWorks(
             $user[2], $user[1],
             "Forgot Password", $message
@@ -80,7 +80,13 @@ but, instead, you should click
 
 function sendValidationEmail($userId, $displayName, $emailAddress)
 {
-    //TODO
+    $url = "http://139.62.210.181/~ss412345/project5/logon.php?action=validate&user_id={$userId}";
+    $message = "
+        <h2>myMovies Express!</h2>
+        <p>Dear ${displayName},</p>
+        <p>Click <a href='{$url}'>this link</a> to validate your account.</p>
+    ";
+    keepSendingMailUntilItActuallyWorks($emailAddress, $displayName, "Account Validation", $message);
 }
 
 function validateAccount($userId)
@@ -152,7 +158,6 @@ function keepSendingMailUntilItActuallyWorks($email_address, $display_name, $sub
         } else if ($result < -1) {
             break;
         }
-
     }
     return $result;
 }
