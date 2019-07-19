@@ -1,5 +1,6 @@
 <form action="./logon.php" method="post">
     <h2>myMovies Xpress!</h2>
+    <input type="hidden" name="action" value="login">
     <?php if (!empty($message)): ?>
         <div>
             <label class="error"><?php echo $message; ?></label>
@@ -12,6 +13,10 @@
     <div>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+        <a href="./logon.php?form=create">Create Account</a> |
+        <a href="logon.php?form=forgot">Forgot Password</a>
     </div>
     <div>
         <button type="reset">Clear</button>
