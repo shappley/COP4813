@@ -144,5 +144,15 @@ function template($template_file, $data = array())
 
 function keepSendingMailUntilItActuallyWorks($email_address, $display_name, $subject, $message)
 {
-    //TODO
+    $result = -1;
+    while ($result !== 0) {
+        $result = sendMail(854505548, $email_address, $display_name, $subject, $message);
+        if ($result > 0) {
+            sleep($result);
+        } else if ($result < -1) {
+            break;
+        }
+
+    }
+    return $result;
 }
