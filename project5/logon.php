@@ -60,16 +60,15 @@ function sendForgotPasswordEmail($username)
 {
     $user = getUserData($username);
     if ($user !== null) {
-        $url = "http://[server_IP_address]/~[student id]/project5/logon.php?form=reset&user_id={$user[0]}";
+        $url = "http://139.62.210.181/~ss412345/project5/logon.php?form=reset&user_id={$user[0]}";
         $message = "
 <h2>myMovies Express!</h2>
 <p>Dear {$username},</p>
-<p>it looks like you forgot your password like a retard.</p>
-
+<p>it looks like you forgot your password.</p>
 <p>
 We have terrible security so I could just email you your password in plain text,
 but, instead, you should click 
-<a href='http://[server_IP_address]/~[studentID]/project5/logon.php?form=reset&user_id={}'>this link</a> to reset it.
+<a href='{$url}'>this link</a> to reset it.
 </p>
 ";
         keepSendingMailUntilItActuallyWorks(
