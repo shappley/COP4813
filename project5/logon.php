@@ -1,8 +1,9 @@
 <?php
-require_once '/home/common/mail.php';
-require_once '/home/common/dbInterface.php';
+//require_once '/home/common/mail.php';
+//require_once '/home/common/dbInterface.php';
 require_once("Template.php");
-processPageRequest();
+//processPageRequest();
+displayCreateAccountForm();
 
 function authenticateUser($username, $password)
 {
