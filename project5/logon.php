@@ -75,7 +75,7 @@ function sendForgotPasswordEmail($username)
             $user[2], $user[1],
             "Forgot Password", $message
         );
-        displayLoginForm("Sent forgot password email to [{$user[2]}, {$user[1]}] with status {$status}");
+        displayLoginForm("Sent forgot password email with status {$status}");
     }
 }
 
@@ -88,6 +88,7 @@ function sendValidationEmail($userId, $displayName, $emailAddress)
         <p>Click <a href='{$url}'>this link</a> to validate your account.</p>
     ";
     keepSendingMailUntilItActuallyWorks($emailAddress, $displayName, "Account Validation", $message);
+    displayLoginForm("Check your email to validate your account");
 }
 
 function validateAccount($userId)
