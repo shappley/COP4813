@@ -71,10 +71,11 @@ function sendForgotPasswordEmail($username)
             <a href='{$url}'>this link</a> to reset it.
             </p>
         ";
-        keepSendingMailUntilItActuallyWorks(
+        $status = keepSendingMailUntilItActuallyWorks(
             $user[2], $user[1],
             "Forgot Password", $message
         );
+        displayLoginForm("Sent forgot password email to [{$user[2]}, {$user[1]}] with status {$status}");
     }
 }
 
