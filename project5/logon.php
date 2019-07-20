@@ -94,8 +94,9 @@ function sendValidationEmail($userId, $displayName, $emailAddress)
 function validateAccount($userId)
 {
     $result = activateAccount($userId);
+    $str = $result ? "true" : "false";
     displayLoginForm(
-        "Account activated: {$result} "
+        "Account activated: {$str}. "
         . ($result ? "Your account was successfully activated" : "The function says you don't exist")
     );
 }
