@@ -9,7 +9,7 @@ function authenticateUser($username, $password)
     $user = validateUser($username, $password);
     if ($user !== null) {
         session_start();
-        $_SESSION["user_id"] = $user[0];
+        $_SESSION["userId"] = $user[0];
         $_SESSION["username"] = $user[1];
         $_SESSION["email"] = $user[2];
         header("Location: ./index.php");
@@ -60,7 +60,7 @@ function sendForgotPasswordEmail($username)
 {
     $user = getUserData($username);
     if ($user !== null) {
-        $url = "http://139.62.210.181/~ss412345/project5/logon.php?form=reset&user_id={$user[0]}";
+        $url = "http://139.62.210.181/~ss412345/project5/logon.php?form=reset&userId={$user[0]}";
         $message = "
             <h2>myMovies Express!</h2>
             <p>Dear {$username},</p>
@@ -81,7 +81,7 @@ function sendForgotPasswordEmail($username)
 
 function sendValidationEmail($userId, $displayName, $emailAddress)
 {
-    $url = "http://139.62.210.181/~ss412345/project5/logon.php?action=validate&user_id={$userId}";
+    $url = "http://139.62.210.181/~ss412345/project5/logon.php?action=validate&userId={$userId}";
     $message = "
         <h2>myMovies Express!</h2>
         <p>Dear ${displayName},</p>

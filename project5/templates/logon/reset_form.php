@@ -1,7 +1,7 @@
 <h2>myMovies Express!</h2>
 <form action="./logon.php" onsubmit="return project5.validateResetPasswordForm();" method="post">
     <input type="hidden" name="action" value="reset">
-    <input type="hidden" name="user_id" value="<?= $userId ?>">
+    <input type="hidden" name="userId" value="<?= $userId ?>">
     <div>
         <label for="password">New Password: </label>
         <input type="password" id="password" name="password" required>
