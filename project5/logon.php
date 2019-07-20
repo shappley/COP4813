@@ -1,9 +1,8 @@
 <?php
-//require_once '/home/common/mail.php';
-//require_once '/home/common/dbInterface.php';
+require_once '/home/common/mail.php';
+require_once '/home/common/dbInterface.php';
 require_once("Template.php");
-//processPageRequest();
-displayCreateAccountForm();
+processPageRequest();
 
 function authenticateUser($username, $password)
 {
@@ -34,17 +33,17 @@ function createAccount($username, $password, $displayName, $emailAddress)
 
 function displayCreateAccountForm()
 {
-    template("./templates/logon/create_form.php");
+    template("./templates/logon/create_form.php", array("title" => "Create Account"));
 }
 
 function displayForgotPasswordForm()
 {
-    template("./templates/logon/forgot_form.php");
+    template("./templates/logon/forgot_form.php", array("title" => "Forgot Password"));
 }
 
 function displayResetPasswordForm($userId)
 {
-    template("./templates/logon/reset_form.php", array("userId" => $userId));
+    template("./templates/logon/reset_form.php", array("userId" => $userId, "title" => "Reset Password"));
 }
 
 function resetPassword($userId, $password)
