@@ -80,7 +80,8 @@ function displayCart($forEmail = false)
 function processPageRequest()
 {
     if (!isset($_SESSION["displayName"])) {
-        header("Location: ./logon.php");
+        echo "displayName not in session";
+        //header("Location: ./logon.php");
         exit;
     }
     if (isset($_GET["action"])) {
