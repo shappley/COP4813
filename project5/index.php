@@ -108,5 +108,6 @@ function removeMovieFromCart($movieID)
 
 function updateMovieListing($order)
 {
-
+    $_SESSION["order"] = $order;
+    echo createMovieList(false);
 }
