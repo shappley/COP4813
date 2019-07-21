@@ -63,7 +63,7 @@ function displayCart($forEmail = false)
 {
     $count = countMoviesInCart($_SESSION["userId"]);
     if (!$count) {
-        echo "User ID not defined.";
+        header("Location: ./logon.php");
         exit;
     }
     $movieList = createMovieList($forEmail);
