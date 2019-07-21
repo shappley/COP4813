@@ -67,11 +67,14 @@ function displayCart($forEmail = false)
         exit;
     }
     $movieList = createMovieList($forEmail);
-    ob_start();
-    require_once './templates/cart/cart_form.html';
-    $message = ob_get_contents();
-    ob_end_clean();
-    return $message;
+    //i'm using my own template file
+    //it does the same thing with ob_start()
+    $template = new Template(
+        "./templates/template.php",
+        "./templates/cart/cart_form.html",
+        array("count" => $count, "moviesList" => $movieList, "title" => "Shopping Cart")
+    );
+    return $template->render();
 }
 
 function processPageRequest()
