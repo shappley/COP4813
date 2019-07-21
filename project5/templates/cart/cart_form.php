@@ -1,4 +1,4 @@
-<?php if ($forEmail): ?>
+<?php if (!$forEmail): ?>
     <div>
         <label>
             Welcome, <?php echo $_SESSION["username"] ?>
@@ -27,12 +27,12 @@
         <div id='shopping_cart'>
             <?= $movieList ?>
         </div>
-        <?php if ($forEmail): ?>
+        <?php if (!$forEmail): ?>
             <button type="button" onclick="location.replace('./search.php')">Add Movie</button>
             <button type="button" onclick="project5.confirmCheckout();">Checkout</button>
         <?php endif; ?>
     </div>
-<?php if ($forEmail): ?>
+<?php if (!$forEmail): ?>
     <div id='modalWindow' class='modal'>
         <div id='modalWindowContent' class='modal-content'>
         </div>
