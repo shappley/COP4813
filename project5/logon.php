@@ -13,9 +13,8 @@ function authenticateUser($username, $password)
         $_SESSION["userId"] = $user[0];
         $_SESSION["displayName"] = $user[1];
         $_SESSION["email"] = $user[2];
-        //header("Location: ./index.php");
-        //exit;
-        displayLoginForm("Authenticated user with [{$user[0]}, {$user[1]}, {$user[2]}]");
+        header("Location: ./index.php");
+        exit;
     } else {
         displayLoginForm("Incorrect username or password.");
     }

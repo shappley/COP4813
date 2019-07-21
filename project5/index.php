@@ -62,7 +62,7 @@ function createMovieList($forEmail = false)
 function displayCart($forEmail = false)
 {
     $count = countMoviesInCart($_SESSION["userId"]);
-    if (!$count) {
+    if ($count === false) {
         header("Location: ./logon.php");
         exit;
     }
@@ -80,8 +80,7 @@ function displayCart($forEmail = false)
 function processPageRequest()
 {
     if (!isset($_SESSION["displayName"])) {
-        echo "displayName not in session";
-        //header("Location: ./logon.php");
+        header("Location: ./logon.php");
         exit;
     }
     if (isset($_GET["action"])) {
@@ -97,10 +96,10 @@ function processPageRequest()
         } else if ($action === "update") {
             updateMovieListing($_GET["order"]);
         } else {
-            displayCart();
+            echo displayCart();
         }
     } else {
-        displayCart();
+        echo displayCart();
     }
 }
 
