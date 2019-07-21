@@ -2,6 +2,7 @@
 require_once '/home/common/mail.php';
 require_once '/home/common/dbInterface.php';
 require_once("Template.php");
+require_once("Util.php");
 processPageRequest();
 
 function authenticateUser($username, $password)
@@ -153,18 +154,4 @@ function template($template_file, $data = array())
         $data
     );
     echo $template->render();
-}
-
-function keepSendingMailUntilItActuallyWorks($email_address, $display_name, $subject, $message)
-{
-    $result = -1;
-    while ($result !== 0) {
-        $result = sendMail(854505548, $email_address, $display_name, $subject, $message);
-        if ($result > 0) {
-            sleep($result);
-        } else if ($result < -1) {
-            break;
-        }
-    }
-    return $result;
 }
