@@ -71,7 +71,7 @@ function displayCart($forEmail = false)
     //it does the same thing with ob_start()
     $template = new Template(
         "./templates/template.php",
-        "./templates/cart/cart_form.html",
+        "./templates/cart/cart_form.php",
         array("count" => $count, "moviesList" => $movieList, "title" => "Shopping Cart")
     );
     return $template->render();
