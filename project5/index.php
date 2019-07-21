@@ -31,37 +31,17 @@ function addMovieToCart($movieID)
 
 function checkout($name, $address)
 {
-    $movies = readMovieData();
-    $message = "<table><tbody>";
-    foreach ($movies as $movie) {
-        $omdb = getOmdbDataById($movie);
-        $message .= "
-            <tr>
-            <td><img style='height: 100px;' src='{$omdb['Poster']}'></td>
-            <td><a href='https://www.imdb.com/title/{$omdb['imdbID']}/'>{$omdb['Title']} ({$omdb['Year']})</a></td>
-            </tr>
-        ";
-    }
-    $message .= "</tbody></table>";
-
-    for ($i = 0; $i < 10; $i++) {
-        $result = sendMail("854505548", $address, $name, "Your Receipt From myMovies Express!", $message);
-        if ($result > 0) {
-            sleep($result);
-        } else {
-            break;
-        }
-    }
-
+    $message = displayCart(true);
+    $result = keepSendingMailUntilItActuallyWorks($address, $name, "Your receipt from myMovies Express", $message);
     echo "
         <script>
             window.onload = function (ev) { 
                 setTimeout(function() {
                     window.location.replace('./index.php')
-                }, 7500);
+                }, 5000);
             };
         </script>
-        <p>Message sent with response {$result}.</p>
+        <p>Message sent with response {$result}. You will be redirected in 5 seconds.</p>
     ";
 }
 
