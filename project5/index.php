@@ -54,7 +54,12 @@ function checkout($name, $address)
     ";
 }
 
-function displayCart()
+function createMovieList($forEmail = false)
+{
+
+}
+
+function displayCart($forEmail = false)
 {
     $movies = readMovieData();
     require_once("./templates/cart_form.php");
@@ -88,6 +93,11 @@ function removeMovieFromCart($movieID)
     $diff = array_diff($array, [$movieID]);
     writeMovieData($diff);
     displayCart();
+}
+
+function updateMovieListing($order)
+{
+
 }
 
 function writeMovieData($array)
