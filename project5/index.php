@@ -61,8 +61,17 @@ function createMovieList($forEmail = false)
 
 function displayCart($forEmail = false)
 {
-    $movies = readMovieData();
-    require_once("./templates/cart_form.php");
+    $count = countMoviesInCart($_SESSION["userId"]);
+    if (!$count) {
+        echo "User ID not defined.";
+        exit;
+    }
+    $movieList = createMovieList($forEmail);
+    ob_start();
+    require_once './templates/cart/cart_form.html';
+    $message = ob_get_contents();
+    ob_end_clean();
+    return $message;
 }
 
 function processPageRequest()
