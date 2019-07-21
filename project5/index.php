@@ -100,27 +100,13 @@ function processPageRequest()
     }
 }
 
-function readMovieData()
-{
-    $csv = array_map('str_getcsv', file('./data/cart.db'));
-    return $csv != null ? $csv[0] : [];
-}
-
 function removeMovieFromCart($movieID)
 {
-    $array = readMovieData();
-    $diff = array_diff($array, [$movieID]);
-    writeMovieData($diff);
+    removeMovieFromShoppingCart($_SESSION["userId"], $movieID);
     displayCart();
 }
 
 function updateMovieListing($order)
 {
 
-}
-
-function writeMovieData($array)
-{
-    $csv = implode(",", $array);
-    file_put_contents("./data/cart.db", $csv);
 }
