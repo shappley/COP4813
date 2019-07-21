@@ -11,7 +11,7 @@ function authenticateUser($username, $password)
     if ($user !== null) {
         session_start();
         $_SESSION["userId"] = $user[0];
-        $_SESSION["username"] = $user[1];
+        $_SESSION["displayName"] = $user[1];
         $_SESSION["email"] = $user[2];
         header("Location: ./index.php");
         exit;
