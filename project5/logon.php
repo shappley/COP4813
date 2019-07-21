@@ -113,7 +113,9 @@ function displayLoginForm($message = "")
 
 function processPageRequest()
 {
-    session_unset();
+    unset($_SESSION["userId"]);
+    unset($_SESSION["displayName"]);
+    unset($_SESSION["email"]);
     if (isset($_POST) && isset($_POST["action"])) {
         $action = $_POST["action"];
         if ($action === "create") {
