@@ -76,14 +76,24 @@ function displayCart($forEmail = false)
 
 function processPageRequest()
 {
-    if (isset($_GET["action"]) && !empty($_GET["action"])) {
+    if (!isset($_SESSION["displayName"])) {
+        header("Location: ./logon.php");
+        exit;
+    }
+    if (isset($_GET["action"])) {
         $action = $_GET["action"];
         if ($action === "add") {
-            addMovieToCart($_GET["movie_id"]);
-        } else if ($action === "remove") {
-            removeMovieFromCart($_GET["movie_id"]);
+            addMovieToCart($_GET["movieId"]);
+            echo displayCart();
         } else if ($action === "checkout") {
-            checkout($_SESSION["username"], $_SESSION["email"]);
+            checkout($_SESSION["displayName"], $_SESSION["emailAddress"]);
+        } else if ($action === "remove") {
+            removeMovieFromCart($_GET["movieId"]);
+            echo displayCart();
+        } else if ($action === "update") {
+            updateMovieListing($_GET["order"]);
+        } else {
+            displayCart();
         }
     } else {
         displayCart();
