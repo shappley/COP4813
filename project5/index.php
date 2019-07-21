@@ -1,20 +1,31 @@
 <?php
 session_start();
-require_once('/home/common/mail.php');
+require_once '/home/common/mail.php';
+require_once '/home/common/dbInterface.php';
+require_once("Template.php");
+require_once("Util.php");
 processPageRequest();
 
 function getOmdbDataById($id)
 {
-    $url = "http://www.omdbapi.com/?apikey=178bb728&type=movie&r=json&i=" . $id;
+    $url = "http://www.omdbapi.com/?apikey=178bb728&type=movie&r=json&i={$id}";
     $json = file_get_contents($url);
     return json_decode($json, true);
 }
 
 function addMovieToCart($movieID)
 {
-    $arr = readMovieData();
-    array_push($arr, $movieID);
-    writeMovieData($arr);
+    $result = movieExistsInDB($movieID);
+    if ($result === 0) {
+        $movie = getOmdbDataById($movieID);
+        $result = addMovie(
+            $movie["imdbID"], $movie["Title"], $movie["Year"],
+            $movie["Rated"], $movie["Runtime"], $movie["Genre"],
+            $movie["Actors"], $movie["Director"], $movie["Writer"],
+            $movie["Plot"], $movie["Poster"]
+        );
+    }
+    addMovieToShoppingCart($_SESSION["userId"], $result);
     displayCart();
 }
 
