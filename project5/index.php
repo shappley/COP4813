@@ -47,7 +47,16 @@ function checkout($name, $address)
 
 function createMovieList($forEmail = false)
 {
-
+    $order = 0;
+    if (isset($_SESSION["order"])) {
+        $order = $_SESSION["order"];
+    }
+    $movies = getMoviesInCart($_SESSION["userId"], $order);
+    ob_start();
+    require_once './templates/cart/movie_list.php';
+    $message = ob_get_contents();
+    ob_end_clean();
+    return $message;
 }
 
 function displayCart($forEmail = false)
