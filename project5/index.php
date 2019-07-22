@@ -98,7 +98,7 @@ function processPageRequest()
 function removeMovieFromCart($movieID)
 {
     removeMovieFromShoppingCart($_SESSION["userId"], $movieID);
-    displayCart();
+    echo displayCart();
 }
 
 function updateMovieListing($order)
