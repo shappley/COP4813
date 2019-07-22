@@ -147,13 +147,3 @@ function processPageRequest()
         displayLoginForm();
     }
 }
-
-function template($template_file, $data = array())
-{
-    $template = new Template(
-        "./templates/template.php",
-        $template_file,
-        $data
-    );
-    echo $template->render();
-}

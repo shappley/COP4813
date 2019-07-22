@@ -1,27 +1,26 @@
 <?php
+require_once("Util.php");
 session_start();
 processPageRequest();
 
 function displaySearchForm()
 {
-    require_once("./templates/search_form.php");
+    template("./templates/search_form.php", array("title" => "Search for a Movie"));
 }
 
 function displaySearchResults($searchString)
 {
-    $results = getSearchResults($searchString);
-    require_once("./templates/search_form.php");
-}
-
-function getSearchResults($search)
-{
-    $url = "http://www.omdbapi.com/?apikey=178bb728&type=movie&r=json&s=" . urlencode($search);
-    $json = file_get_contents($url);
-    return json_decode($json, true)["Search"];
+    $results = getOmdbSearchResults($searchString);
+    template("./templates/search/search_form.php", array("title" => "Search Results", "searchResults" => $results));
 }
 
 function processPageRequest()
 {
+    if (!isset($_SESSION["displayName"])) {
+        header("Location: ./logon.php");
+        exit;
+    }
+
     if (isset($_POST["search"]) && !empty($_POST["search"])) {
         displaySearchResults($_POST["search"]);
     } else {
