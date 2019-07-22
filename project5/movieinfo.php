@@ -24,5 +24,5 @@ function processPageRequest()
     if (isset($_GET["movieId"])) {
         $movieId = $_GET["movieId"];
     }
-    createMovieList($movieId);
+    createMessage($movieId);
 }
