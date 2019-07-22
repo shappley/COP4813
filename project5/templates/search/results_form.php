@@ -1,11 +1,5 @@
+<? require_once("search_form.php") ?>
 <div>
-    <label>
-        Welcome, <?php echo $_SESSION["username"] ?>
-        <a href="#" onclick="return project5.confirmLogout();">(logout)</a>
-    </label>
-</div>
-<div>
-    <h2>myMovies Express!</h2>
     <p><?= count($searchResults) ?> Movies Found</p>
 </div>
 <?php if (count($searchResults) > 0): ?>
