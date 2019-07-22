@@ -5,7 +5,7 @@
         $omdb = getMovieData($movie);
         if ($omdb !== null): ?>
             <tr>
-                <td><img src="<?= $omdb['Poster'] ?>"></td>
+                <td><img height="100" src="<?= $omdb['Poster'] ?>"></td>
                 <td><?= $omdb["Title"] ?>(<?= $omdb["Year"] ?>)</td>
                 <?php if (!$forEmail): ?>
                     <td>
