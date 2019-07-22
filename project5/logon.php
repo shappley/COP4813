@@ -12,7 +12,7 @@ function authenticateUser($username, $password)
         session_start();
         $_SESSION["userId"] = $user[0];
         $_SESSION["displayName"] = $user[1];
-        $_SESSION["email"] = $user[2];
+        $_SESSION["emailAddress"] = $user[2];
         header("Location: ./index.php");
         exit;
     } else {
@@ -115,7 +115,7 @@ function processPageRequest()
 {
     unset($_SESSION["userId"]);
     unset($_SESSION["displayName"]);
-    unset($_SESSION["email"]);
+    unset($_SESSION["emailAddress"]);
     if (isset($_POST) && isset($_POST["action"])) {
         $action = $_POST["action"];
         if ($action === "create") {
