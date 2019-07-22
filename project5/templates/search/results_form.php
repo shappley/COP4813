@@ -1,4 +1,4 @@
-<? require_once("search_form.php") ?>
+<? require_once("./templates/search/search_form.php") ?>
 <div>
     <p><?= count($searchResults) ?> Movies Found</p>
 </div>
