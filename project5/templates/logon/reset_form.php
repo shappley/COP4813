@@ -11,7 +11,7 @@
         <input type="password" name="confirmPassword" id="confirmPassword" required>
     </div>
     <div>
-        <button type="button" onclick="return project5.confirmCancel();">Cancel</button>
+        <button type="button" onclick="return project5.confirmCancel('reset');">Cancel</button>
         <button type="reset">Clear</button>
         <button type="submit">Reset Password</button>
     </div>
