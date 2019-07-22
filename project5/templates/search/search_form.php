@@ -12,7 +12,7 @@
     <form action="./search.php" method="post">
         <div>
             <label for="searchKeyword">Keyword</label>
-            <input type="text" id="searchKeyword" name="keyword" required>
+            <input type="text" id="searchKeyword" name="search" required>
         </div>
         <div>
             <button type="button" onclick="location.replace('./index.php')">Cancel</button>
