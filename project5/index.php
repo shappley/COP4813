@@ -65,7 +65,8 @@ function displayCart($forEmail = false)
     $template = new Template(
         "./templates/template.php",
         "./templates/cart/cart_form.php",
-        array("count" => $count, "movieList" => $movieList, "title" => "Shopping Cart")
+        array("count" => $count, "movieList" => $movieList,
+            "title" => "Shopping Cart", "forEmail" => $forEmail)
     );
     return $template->render();
 }
