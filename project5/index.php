@@ -19,7 +19,7 @@ function addMovieToCart($movieID)
         );
     }
     addMovieToShoppingCart($_SESSION["userId"], $result);
-    displayCart();
+    echo displayCart();
 }
 
 function checkout($name, $address)
@@ -80,7 +80,6 @@ function processPageRequest()
         $action = $_GET["action"];
         if ($action === "add") {
             addMovieToCart($_GET["movieId"]);
-            echo displayCart();
         } else if ($action === "checkout") {
             checkout($_SESSION["displayName"], $_SESSION["emailAddress"]);
         } else if ($action === "remove") {
