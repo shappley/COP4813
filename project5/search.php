@@ -5,13 +5,13 @@ processPageRequest();
 
 function displaySearchForm()
 {
-    template("./templates/search_form.php", array("title" => "Search for a Movie"));
+    template("./templates/search/search_form.php", array("title" => "Search for a Movie"));
 }
 
 function displaySearchResults($searchString)
 {
     $results = getOmdbSearchResults($searchString);
-    template("./templates/search/search_form.php", array("title" => "Search Results", "searchResults" => $results));
+    template("./templates/search/results_form.php", array("title" => "Search Results", "searchResults" => $results));
 }
 
 function processPageRequest()
