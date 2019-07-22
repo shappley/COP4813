@@ -103,5 +103,18 @@ var project5 = project5 || {};
         }
         return true;
     };
+
+    project5.validateResetPasswordForm = function () {
+        var password = $id("password").value;
+        var confirmPassword = $id("confirmPassword").value;
+        if (anyContainSpace([password, confirmPassword])) {
+            alert("Password cannot contain spaces");
+            return false;
+        } else if (password !== confirmPassword) {
+            alert("Confirmation Password not equal to Password");
+            return false;
+        }
+        return true;
+    };
 })
 ();
