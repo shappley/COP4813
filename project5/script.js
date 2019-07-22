@@ -76,11 +76,11 @@ var project5 = project5 || {};
     };
 
     var anyContainSpace = function (values) {
-        values.forEach(function (value) {
-            if (value.indexOf(" ") > -1) {
+        for (var i = 0; i < values.length; i++) {
+            if (values[i].indexOf(" ") >= 0) {
                 return true;
             }
-        });
+        }
         return false;
     };
 
