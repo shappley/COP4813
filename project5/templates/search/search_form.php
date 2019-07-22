@@ -1,6 +1,6 @@
 <div>
     <label>
-        Welcome, <?php echo $_SESSION["username"] ?>
+        Welcome, <?php echo $_SESSION["displayName"] ?>
         <a href="#" onclick="return project5.confirmLogout();">(logout)</a>
     </label>
 </div>
